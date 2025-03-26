@@ -1,0 +1,41 @@
+name: Update BRVM Dashboard
+
+on:
+  # Lancer manuellement depuis l'interface GitHub
+  workflow_dispatch:
+  
+  # Lancer automatiquement chaque semaine (le lundi à 8h00)
+  schedule:
+    - cron: '0 8 * * 1'
+
+jobs:
+  update-dashboard:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Create data directory if not exists
+        run: mkdir -p data
+      
+      - name: Run dashboard update script
+        run: python scripts/update_dashboard.py
+      
+      - name: Commit and push if changes
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add docs/
+          git commit -m "Mise à jour automatique du tableau de bord" || echo "No changes to commit"
+          git push
