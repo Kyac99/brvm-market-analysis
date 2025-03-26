@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analyse des valeurs de la BRVM</title>
+    <title>Tableau de Bord BRVM</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -28,15 +28,22 @@
             margin-bottom: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .welcome {
-            background-color: white;
-            padding: 30px;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
-        h1, h2, h3 {
-            color: #0d6efd;
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f9fa;
+            color: #495057;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f8f9fa;
         }
         .footer {
             text-align: center;
@@ -46,51 +53,267 @@
             color: white;
             border-radius: 5px;
         }
-        .loader {
-            text-align: center;
-            margin: 50px 0;
-        }
-        .loader p {
-            font-size: 18px;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>Analyse des valeurs de la BRVM</h1>
-            <p class="text-muted">Tableau de bord interactif des valeurs cotées à la Bourse Régionale des Valeurs Mobilières</p>
+            <h1>Tableau de Bord des Valeurs de la BRVM</h1>
+            <p class="text-muted">Mis à jour manuellement - Version simplifiée</p>
         </div>
         
-        <div class="welcome">
-            <h2>Bienvenue sur le tableau de bord d'analyse des valeurs de la BRVM</h2>
-            <p>Cette page est en cours de chargement ou en attente de la première mise à jour de données.</p>
-            <p>Pour générer le tableau de bord avec les données les plus récentes, exécutez le script suivant :</p>
-            <pre class="bg-light p-3 rounded">python scripts/update_dashboard.py</pre>
-            <p>Ce script va :</p>
-            <ul>
-                <li>Récupérer les données actuelles des valeurs cotées à la BRVM</li>
-                <li>Collecter les capitalisations boursières, PER et dividendes</li>
-                <li>Générer un tableau de bord interactif</li>
-                <li>Mettre à jour cette page avec les données récentes</li>
-            </ul>
-            <div class="alert alert-info">
-                <strong>Note:</strong> Pour voir une mise à jour manuelle des données, veuillez consulter la section "Actions" du dépôt GitHub.
+        <div class="card">
+            <div class="card-header">
+                <h2>Top 10 des valeurs par capitalisation boursière</h2>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Rang</th>
+                            <th>Symbole</th>
+                            <th>Nom</th>
+                            <th>Secteur</th>
+                            <th>Cours (FCFA)</th>
+                            <th>Capitalisation (Mds FCFA)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>SONATEL</td>
+                            <td>Société Nationale des Télécommunications du Sénégal</td>
+                            <td>Télécommunications</td>
+                            <td>13 000</td>
+                            <td>1 300</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>SGBCI</td>
+                            <td>Société Générale de Banques en Côte d'Ivoire</td>
+                            <td>Banque</td>
+                            <td>11 500</td>
+                            <td>220</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>ECOBANK</td>
+                            <td>Ecobank CI</td>
+                            <td>Banque</td>
+                            <td>4 500</td>
+                            <td>180</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>ONATEL</td>
+                            <td>Office National des Télécommunications</td>
+                            <td>Télécommunications</td>
+                            <td>3 500</td>
+                            <td>175</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>SAPH</td>
+                            <td>Société Africaine de Plantations d'Hévéas</td>
+                            <td>Agro-industrie</td>
+                            <td>3 700</td>
+                            <td>135</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>SIB</td>
+                            <td>Société Ivoirienne de Banque</td>
+                            <td>Banque</td>
+                            <td>4 200</td>
+                            <td>105</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>SOGB</td>
+                            <td>Société des Caoutchoucs de Grand-Béréby</td>
+                            <td>Agro-industrie</td>
+                            <td>4 800</td>
+                            <td>96</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>BOA</td>
+                            <td>Bank of Africa Côte d'Ivoire</td>
+                            <td>Banque</td>
+                            <td>3 200</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>BICC</td>
+                            <td>NSIA Banque CI</td>
+                            <td>Banque</td>
+                            <td>5 200</td>
+                            <td>74</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>ETI</td>
+                            <td>Ecobank Transnational Incorporated</td>
+                            <td>Banque</td>
+                            <td>14</td>
+                            <td>67</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         
         <div class="card">
             <div class="card-header">
-                <h3>En attente de données...</h3>
+                <h2>Top 10 des valeurs par rendement du dividende</h2>
             </div>
             <div class="card-body">
-                <div class="loader">
-                    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                    <p>En attente des données de la BRVM...</p>
-                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Rang</th>
+                            <th>Symbole</th>
+                            <th>Nom</th>
+                            <th>Cours (FCFA)</th>
+                            <th>Dividende (FCFA)</th>
+                            <th>Rendement (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>TOTAL</td>
+                            <td>Total Côte d'Ivoire</td>
+                            <td>2 100</td>
+                            <td>189</td>
+                            <td>9.0</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>SAPH</td>
+                            <td>Société Africaine de Plantations d'Hévéas</td>
+                            <td>3 700</td>
+                            <td>296</td>
+                            <td>8.0</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>SOGB</td>
+                            <td>Société des Caoutchoucs de Grand-Béréby</td>
+                            <td>4 800</td>
+                            <td>360</td>
+                            <td>7.5</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>BOA</td>
+                            <td>Bank of Africa Côte d'Ivoire</td>
+                            <td>3 200</td>
+                            <td>224</td>
+                            <td>7.0</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>SONATEL</td>
+                            <td>Société Nationale des Télécommunications du Sénégal</td>
+                            <td>13 000</td>
+                            <td>845</td>
+                            <td>6.5</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>ECOBANK</td>
+                            <td>Ecobank CI</td>
+                            <td>4 500</td>
+                            <td>270</td>
+                            <td>6.0</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>FILTISAC</td>
+                            <td>Filature, Tissage, Sacs</td>
+                            <td>1 340</td>
+                            <td>80</td>
+                            <td>6.0</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>SMB</td>
+                            <td>Société Multinationale de Bitumes</td>
+                            <td>6 500</td>
+                            <td>350</td>
+                            <td>5.4</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>SIB</td>
+                            <td>Société Ivoirienne de Banque</td>
+                            <td>4 200</td>
+                            <td>210</td>
+                            <td>5.0</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>SOLIBRA</td>
+                            <td>Société de Limonaderies et Brasseries d'Afrique</td>
+                            <td>153 000</td>
+                            <td>7 500</td>
+                            <td>4.9</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>Évolution de l'indice BRVM Composite</h2>
+            </div>
+            <div class="card-body">
+                <p>L'indice BRVM Composite a connu une évolution positive ces dernières années, malgré les défis économiques régionaux et mondiaux.</p>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Année</th>
+                            <th>Valeur de début</th>
+                            <th>Valeur de fin</th>
+                            <th>Performance (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2020</td>
+                            <td>159,52</td>
+                            <td>145,37</td>
+                            <td>-8.87</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td>145,37</td>
+                            <td>205,63</td>
+                            <td>+41.45</td>
+                        </tr>
+                        <tr>
+                            <td>2022</td>
+                            <td>205,63</td>
+                            <td>191,33</td>
+                            <td>-6.95</td>
+                        </tr>
+                        <tr>
+                            <td>2023</td>
+                            <td>191,33</td>
+                            <td>220,46</td>
+                            <td>+15.22</td>
+                        </tr>
+                        <tr>
+                            <td>2024 (YTD)</td>
+                            <td>220,46</td>
+                            <td>227,32</td>
+                            <td>+3.11</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         
