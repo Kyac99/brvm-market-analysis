@@ -8,6 +8,10 @@ on:
   schedule:
     - cron: '0 8 * * 1'
 
+# Autoriser le workflow à modifier le dépôt
+permissions:
+  contents: write
+
 jobs:
   update-dashboard:
     runs-on: ubuntu-latest
