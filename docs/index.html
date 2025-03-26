@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse des valeurs de la BRVM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .welcome {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        h1, h2, h3 {
+            color: #0d6efd;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #343a40;
+            color: white;
+            border-radius: 5px;
+        }
+        .loader {
+            text-align: center;
+            margin: 50px 0;
+        }
+        .loader p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Analyse des valeurs de la BRVM</h1>
+            <p class="text-muted">Tableau de bord interactif des valeurs cotées à la Bourse Régionale des Valeurs Mobilières</p>
+        </div>
+        
+        <div class="welcome">
+            <h2>Bienvenue sur le tableau de bord d'analyse des valeurs de la BRVM</h2>
+            <p>Cette page est en cours de chargement ou en attente de la première mise à jour de données.</p>
+            <p>Pour générer le tableau de bord avec les données les plus récentes, exécutez le script suivant :</p>
+            <pre class="bg-light p-3 rounded">python scripts/update_dashboard.py</pre>
+            <p>Ce script va :</p>
+            <ul>
+                <li>Récupérer les données actuelles des valeurs cotées à la BRVM</li>
+                <li>Collecter les capitalisations boursières, PER et dividendes</li>
+                <li>Générer un tableau de bord interactif</li>
+                <li>Mettre à jour cette page avec les données récentes</li>
+            </ul>
+            <div class="alert alert-info">
+                <strong>Note:</strong> Pour voir une mise à jour manuelle des données, veuillez consulter la section "Actions" du dépôt GitHub.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3>En attente de données...</h3>
+            </div>
+            <div class="card-body">
+                <div class="loader">
+                    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p>En attente des données de la BRVM...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 - Analyse des valeurs de la BRVM</p>
+            <p><a href="https://github.com/Kyac99/brvm-market-analysis" class="text-white">Voir le projet sur GitHub</a></p>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
